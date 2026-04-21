@@ -1,5 +1,5 @@
 
-# PPG Database Design (Draft)
+# PPG Database Design 
 
 This repository contains the first draft of the database design for a distributed cardiovascular monitoring system based on photoplethysmography (PPG) signals.
 
