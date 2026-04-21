@@ -12,7 +12,7 @@ The objective of this project is to design, implement, assess a data architectur
 ppg-database-design/<br>
 ├── README.md<br>
 ├── sql/<br>
-│   ├── 1. db/creation_script.sql<br>
+│   ├── 1. db_creation_script.sql<br>
 │   ├── 2. enable_TimescaleDB.sql<br>
 │   └── 3. test_inserts.sql<br>
 └── models/<br>
@@ -36,7 +36,7 @@ ppg-database-design/<br>
 ## Setup and Execution
 
 To initialize the database, execute the scripts in the following order:
- 1. db/creation_script.sql
+ 1. db_creation_script.sql
  2. enable_TimescaleDB.sql
  3. test_inserts.sql
 
