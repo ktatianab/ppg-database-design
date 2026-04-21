@@ -1,0 +1,144 @@
+
+--Test insert data for the wearable monitoring system
+
+-- Country and city
+INSERT INTO country (id_country, name) VALUES (1, 'Colombia');
+INSERT INTO city (id_city, id_country, name) VALUES (1, 1, 'Bogotá');
+
+-- User
+INSERT INTO "USER" (id_user, id_city, email, password_hash, first_name, last_name, birth_date)
+VALUES (1, 1, 'test@email.com', 'hash123', 'Juan', 'Pérez', '1990-01-01');
+
+-- Wearable model and status
+INSERT INTO wearable_model (id_wearable_model, brand, model) 
+VALUES (1, 'Galaxy', 'H10');
+INSERT INTO wearable_status (id_wearable_status, name, description) 
+VALUES (1, 'ACTIVE', 'Dispositivo activo');
+
+-- Wearable
+INSERT INTO wearable (id_wearable, id_user, id_wearable_status, id_wearable_model, mac_address, created_at)
+VALUES (1, 1, 1, 1, 'AA:BB:CC:DD:EE:FF', now());
+
+-- Monitoring session
+INSERT INTO monitoring_session (id_session, id_user, date_time, atrial_fibrillation_present)
+VALUES (1, 1, now(), false);
+
+
+
+-- ──  Test data (PPG datapoints) ───────────
+INSERT INTO ppg_sample (id_ppg_sample, id_session, ts, green_, red_, ir)
+VALUES
+  (1,  1, 1775782347637, 2340, NULL, NULL),
+  (2,  1, 1775782347737, 2343, NULL, NULL),
+  (3,  1, 1775782347837, 2345, NULL, NULL),
+  (4,  1, 1775782347937, 2349, NULL, NULL),
+  (5,  1, 1775782348037, 2353, NULL, NULL),
+  (6,  1, 1775782348137, 2353, NULL, NULL),
+  (7,  1, 1775782348237, 2353, NULL, NULL),
+  (8,  1, 1775782348337, 2357, NULL, NULL),
+  (9,  1, 1775782348437, 2359, NULL, NULL),
+  (10, 1, 1775782348537, 2360, NULL, NULL),
+  (11, 1, 1775782348637, 2364, NULL, NULL),
+  (12, 1, 1775782348737, 2367, NULL, NULL),
+  (13, 1, 1775782348837, 2370, NULL, NULL),
+  (14, 1, 1775782348937, 2370, NULL, NULL),
+  (15, 1, 1775782349037, 2370, NULL, NULL),
+  (16, 1, 1775782349137, 2372, NULL, NULL),
+  (17, 1, 1775782349237, 2374, NULL, NULL),
+  (18, 1, 1775782349337, 2374, NULL, NULL),
+  (19, 1, 1775782349437, 2376, NULL, NULL),
+  (20, 1, 1775782349537, 2381, NULL, NULL),
+  (21, 1, 1775782349637, 2382, NULL, NULL),
+  (22, 1, 1775782349737, 2383, NULL, NULL),
+  (23, 1, 1775782349837, 2385, NULL, NULL),
+  (24, 1, 1775782349937, 2384, NULL, NULL),
+  (25, 1, 1775782350037, 2385, NULL, NULL),
+  (26, 1, 1775782350137, 2384, NULL, NULL),
+  (27, 1, 1775782350237, 2384, NULL, NULL),
+  (28, 1, 1775782350337, 2386, NULL, NULL),
+  (29, 1, 1775782350437, 2387, NULL, NULL),
+  (30, 1, 1775782350537, 2390, NULL, NULL),
+  (31, 1, 1775782350637, 2393, NULL, NULL),
+  (32, 1, 1775782350737, 2395, NULL, NULL),
+  (33, 1, 1775782350837, 2393, NULL, NULL),
+  (34, 1, 1775782350937, 2391, NULL, NULL),
+  (35, 1, 1775782351037, 2390, NULL, NULL),
+  (36, 1, 1775782351137, 2391, NULL, NULL),
+  (37, 1, 1775782351237, 2389, NULL, NULL),
+  (38, 1, 1775782351337, 2389, NULL, NULL),
+  (39, 1, 1775782351437, 2390, NULL, NULL),
+  (40, 1, 1775782351537, 2390, NULL, NULL),
+  (41, 1, 1775782351637, 2391, NULL, NULL),
+  (42, 1, 1775782351737, 2391, NULL, NULL),
+  (43, 1, 1775782351837, 2388, NULL, NULL),
+  (44, 1, 1775782351937, 2386, NULL, NULL),
+  (45, 1, 1775782352037, 2384, NULL, NULL),
+  (46, 1, 1775782352137, 2384, NULL, NULL),
+  (47, 1, 1775782352237, 2383, NULL, NULL),
+  (48, 1, 1775782352337, 2384, NULL, NULL),
+  (49, 1, 1775782352437, 2384, NULL, NULL),
+  (50, 1, 1775782352537, 2381, NULL, NULL),
+  (51, 1, 1775782352637, 2378, NULL, NULL),
+  (52, 1, 1775782352737, 2376, NULL, NULL),
+  (53, 1, 1775782352837, 2375, NULL, NULL),
+  (54, 1, 1775782352937, 2372, NULL, NULL),
+  (55, 1, 1775782353037, 2372, NULL, NULL),
+  (56, 1, 1775782353137, 2372, NULL, NULL),
+  (57, 1, 1775782353237, 2372, NULL, NULL),
+  (58, 1, 1775782353337, 2372, NULL, NULL),
+  (59, 1, 1775782353437, 2370, NULL, NULL),
+  (60, 1, 1775782353537, 2363, NULL, NULL),
+  (61, 1, 1775782353637, 2362, NULL, NULL),
+  (62, 1, 1775782353737, 2359, NULL, NULL),
+  (63, 1, 1775782353837, 2355, NULL, NULL),
+  (64, 1, 1775782353937, 2353, NULL, NULL),
+  (65, 1, 1775782354037, 2352, NULL, NULL),
+  (66, 1, 1775782354137, 2352, NULL, NULL),
+  (67, 1, 1775782354237, 2353, NULL, NULL),
+  (68, 1, 1775782354337, 2344, NULL, NULL),
+  (69, 1, 1775782354437, 2339, NULL, NULL),
+  (70, 1, 1775782354537, 2337, NULL, NULL),
+  (71, 1, 1775782354637, 2332, NULL, NULL),
+  (72, 1, 1775782354737, 2330, NULL, NULL),
+  (73, 1, 1775782354837, 2329, NULL, NULL),
+  (74, 1, 1775782354937, 2327, NULL, NULL),
+  (75, 1, 1775782355037, 2327, NULL, NULL),
+  (76, 1, 1775782355137, 2321, NULL, NULL),
+  (77, 1, 1775782355237, 2316, NULL, NULL),
+  (78, 1, 1775782355337, 2313, NULL, NULL),
+  (79, 1, 1775782355437, 2307, NULL, NULL),
+  (80, 1, 1775782355537, 2306, NULL, NULL),
+  (81, 1, 1775782355637, 2306, NULL, NULL),
+  (82, 1, 1775782355737, 2305, NULL, NULL),
+  (83, 1, 1775782355837, 2300, NULL, NULL),
+  (84, 1, 1775782355937, 2294, NULL, NULL),
+  (85, 1, 1775782356037, 2291, NULL, NULL),
+  (86, 1, 1775782356137, 2289, NULL, NULL),
+  (87, 1, 1775782356237, 2289, NULL, NULL),
+  (88, 1, 1775782356337, 2290, NULL, NULL),
+  (89, 1, 1775782356437, 2291, NULL, NULL),
+  (90, 1, 1775782356537, 2291, NULL, NULL),
+  (91, 1, 1775782356637, 2289, NULL, NULL),
+  (92, 1, 1775782356737, 2284, NULL, NULL),
+  (93, 1, 1775782356837, 2282, NULL, NULL),
+  (94, 1, 1775782356937, 2281, NULL, NULL),
+  (95, 1, 1775782357037, 2278, NULL, NULL),
+  (96, 1, 1775782357137, 2280, NULL, NULL),
+  (97, 1, 1775782357237, 2280, NULL, NULL),
+  (98, 1, 1775782357337, 2282, NULL, NULL),
+  (99, 1, 1775782357437, 2283, NULL, NULL),
+  (100,1, 1775782357537, 2280, NULL, NULL);
+
+-- ──  VERIFY the inserted information─────────────────────────
+SELECT 
+    ms.id_session,
+    ms.id_user,
+    ms.atrial_fibrillation_present  AS fibrilacion_auricular,
+    COUNT(p.id_ppg_sample)          AS total_muestras,
+    MIN(to_timestamp(p.ts/1000.0))  AS inicio,
+    MAX(to_timestamp(p.ts/1000.0))  AS fin,
+    ROUND((MAX(p.ts) - MIN(p.ts)) / 1000.0, 2) AS duracion_segundos
+FROM monitoring_session ms
+JOIN ppg_sample p ON p.id_session = ms.id_session
+WHERE ms.id_session = 1
+GROUP BY ms.id_session, ms.id_user, ms.atrial_fibrillation_present;
