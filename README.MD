@@ -44,7 +44,9 @@ To initialize the database, execute the scripts in the following order:
 
  > ⚠️ Note: TimescaleDB must be properly installed and configured in your PostgreSQL instance before running the scripts.
 
-## 📦 TimescaleDB Installation
+<br>
+
+## 📦TimescaleDB Installation
 
 This project requires TimescaleDB as a PostgreSQL extension for handling time-series data.
 
@@ -61,9 +63,5 @@ Official installation guide:
 2. Install TimescaleDB following the official guide for your OS
 3. Enable the extension in your database by running:
 
-```sql
-CREATE EXTENSION IF NOT EXISTS timescaledb;
-
-
-
+<br>
 
