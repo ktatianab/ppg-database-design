@@ -17,8 +17,7 @@ VALUES (1, 'Galaxy', 'H10');
 INSERT INTO WEARABLE_STATUS (ID_WEARABLE_STATUS, NAME, DESCRIPTION) VALUES
 (1, 'ACTIVE',       'Device currently in use by the user'),
 (2, 'INACTIVE',     'Device registered but not currently in use'),
-(3, 'DISCONNECTED', 'Device has no Bluetooth signal'),
-(4, 'MAINTENANCE',  'Device under technical review or repair');
+(3, 'DISCONNECTED', 'Device has no Bluetooth signal');
 
 -- Wearable
 INSERT INTO wearable (id_wearable, id_user, id_wearable_status, id_wearable_model, mac_address, created_at)
