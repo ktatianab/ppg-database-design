@@ -55,7 +55,7 @@ You can download and install TimescaleDB from the official website:
 👉 https://www.timescale.com/
 
 Official installation guide:
-👉 https://docs.timescale.com/install/latest/
+👉 https://www.tigerdata.com/docs/get-started/choose-your-path/install-timescaledb
 
 ### Basic Steps
 
