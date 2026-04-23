@@ -12,14 +12,6 @@ VALUES (1, 1, 'test@email.com', 'hash123', 'Juan', 'Pérez', '1990-01-01');
 INSERT INTO wearable_model (id_wearable_model, brand, model) 
 VALUES (1, 'Galaxy', 'H10');
 
-<<<<<<< HEAD
-=======
--- wereable status
-INSERT INTO WEARABLE_STATUS (ID_WEARABLE_STATUS, NAME, DESCRIPTION) VALUES
-(1, 'ACTIVE',       'Device currently in use by the user'),
-(2, 'INACTIVE',     'Device registered but not currently in use'),
-(3, 'DISCONNECTED', 'Device has no Bluetooth signal');
->>>>>>> d2f0e2426ed2be57eb0c378a6c9bcc4246c44607
 
 -- Wearable
 INSERT INTO wearable (id_wearable, id_user,  id_wearable_model, mac_address, created_at)
