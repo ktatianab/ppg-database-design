@@ -160,7 +160,7 @@ create table HEALTH_RECORD (
    ID_USER              INT4                 null,
    WEIGHT_KG            DECIMAL(5,2)         not null,
    HEIGHT_CM           DECIMAL(5,1)         null,
-   RECORDED_AT          DATE                 not null,
+   RECORDED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
    constraint PK_HEALTH_RECORD primary key (ID_HEALTH_RECORD)
 );
 
