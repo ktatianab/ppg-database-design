@@ -11,8 +11,8 @@ create table ALERT (
    ID_SESSION           INT4                 not null,
    ID_SEVERITY_LEVEL   INT4                 null,
    DESCRIPTION          VARCHAR(255)         not null,
-   CREATED_AT           DATE                 null,
-   UPDATED_AT           DATE                 null,
+   CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   UPDATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
    constraint PK_ALERT primary key (ID_ALERT)
 );
 
