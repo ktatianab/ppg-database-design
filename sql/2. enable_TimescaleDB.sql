@@ -1,4 +1,4 @@
-
+ 
 
 -- 1) Enable the extension
 CREATE EXTENSION IF NOT EXISTS timescaledb;
