@@ -1,8 +1,9 @@
-
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     17/09/2026 11:30:33�a.�m.                    */
+/* Created on:     17/09/2026 11:58:01�a.�m.                    */
 /*==============================================================*/
+
+
 
 
 /*==============================================================*/
@@ -55,7 +56,6 @@ create table APP_USER (
    ID_USER              INT4                 not null,
    ID_CITY              INT4                 null,
    EMAIL                VARCHAR(50)          not null,
-   PASSWORD_HASH        VARCHAR(255)         not null,
    FIRST_NAME           VARCHAR(50)          not null,
    LAST_NAME            VARCHAR(50)          not null,
    BIRTH_DATE           DATE                 not null,
@@ -75,9 +75,9 @@ comment on column APP_USER.UPDATED_AT is
 'Audit Fields';
 
 /*==============================================================*/
-/* Index: USER_PK                                               */
+/* Index: APP_USER_PK                                           */
 /*==============================================================*/
-create unique index USER_PK on APP_USER (
+create unique index APP_USER_PK on APP_USER (
 ID_USER
 );
 
@@ -89,11 +89,34 @@ ID_CITY
 );
 
 /*==============================================================*/
+/* Table: AUTH_CREDENCIAL                                       */
+/*==============================================================*/
+create table AUTH_CREDENCIAL (
+   ID_CREDENTIAL        INT4                 not null,
+   ID_USER              INT4                 null,
+   PASSWORD_HASH_       VARCHAR(255)         null,
+   IS_ACTIVE_           BOOL                 null,
+   CREATED_AT           DATE                 null,
+   UPDATE_AT            DATE                 null,
+   constraint PK_AUTH_CREDENCIAL primary key (ID_CREDENTIAL)
+);
+
+comment on table AUTH_CREDENCIAL is
+'User weight and height history';
+
+/*==============================================================*/
+/* Index: AUTH_CREDENCIAL_PK                                    */
+/*==============================================================*/
+create unique index AUTH_CREDENCIAL_PK on AUTH_CREDENCIAL (
+ID_CREDENTIAL
+);
+
+/*==============================================================*/
 /* Table: CITY                                                  */
 /*==============================================================*/
 create table CITY (
    ID_CITY              INT4                 not null,
-   ID_COUNTRY           INT4                 not null,
+   ID_REGION            INT4                 null,
    NAME                 VARCHAR(100)         not null,
    constraint PK_CITY primary key (ID_CITY)
 );
@@ -109,10 +132,10 @@ ID_CITY
 );
 
 /*==============================================================*/
-/* Index: COUNTRY_CITY_FK                                       */
+/* Index: REGION_CITY_FK                                        */
 /*==============================================================*/
-create  index COUNTRY_CITY_FK on CITY (
-ID_COUNTRY
+create  index REGION_CITY_FK on CITY (
+ID_REGION
 );
 
 /*==============================================================*/
@@ -285,9 +308,9 @@ ID_USER
 );
 
 /*==============================================================*/
-/* Index: FK_MONITORI_USER_SESS_USER                            */
+/* Index: COMPUTE_MONISESSION_FK                                */
 /*==============================================================*/
-create  index FK_MONITORI_USER_SESS_USER on MONITORING_SESSION (
+create  index COMPUTE_MONISESSION_FK on MONITORING_SESSION (
 ID_COMPUTE_STATUS
 );
 
@@ -297,7 +320,7 @@ ID_COMPUTE_STATUS
 create table PPG_SAMPLE (
    ID_PPG_SAMPLE        INT8                 not null,
    ID_SESSION           INT4                 null,
-   TS                   INT8                 null,
+   TS                   DATE                 null,
    GREEN_               INT4                 not null,
    RED_                 INT4                 null,
    IR                   INT4                 null,
@@ -319,6 +342,33 @@ ID_PPG_SAMPLE
 /*==============================================================*/
 create  index MS_PPG_SAMPLE_FK on PPG_SAMPLE (
 ID_SESSION
+);
+
+/*==============================================================*/
+/* Table: REGION                                                */
+/*==============================================================*/
+create table REGION (
+   ID_REGION            INT4                 not null,
+   ID_COUNTRY           INT4                 null,
+   NAME                 VARCHAR(100)         not null,
+   constraint PK_REGION primary key (ID_REGION)
+);
+
+comment on table REGION is
+'Country Catalog';
+
+/*==============================================================*/
+/* Index: REGION_PK                                             */
+/*==============================================================*/
+create unique index REGION_PK on REGION (
+ID_REGION
+);
+
+/*==============================================================*/
+/* Index: COUNTRY_REGION_FK                                     */
+/*==============================================================*/
+create  index COUNTRY_REGION_FK on REGION (
+ID_COUNTRY
 );
 
 /*==============================================================*/
@@ -420,9 +470,14 @@ alter table APP_USER
       references CITY (ID_CITY)
       on delete restrict on update restrict;
 
+alter table AUTH_CREDENCIAL
+   add constraint FK_AUTH_CRE_AUTH_CRED_APP_USER foreign key (ID_USER)
+      references APP_USER (ID_USER)
+      on delete restrict on update restrict;
+
 alter table CITY
-   add constraint FK_CITY_COUNTRY_C_COUNTRY foreign key (ID_COUNTRY)
-      references COUNTRY (ID_COUNTRY)
+   add constraint FK_CITY_REGION_CI_REGION foreign key (ID_REGION)
+      references REGION (ID_REGION)
       on delete restrict on update restrict;
 
 alter table HEALTH_RECORD
@@ -455,6 +510,11 @@ alter table PPG_SAMPLE
       references MONITORING_SESSION (ID_SESSION)
       on delete restrict on update restrict;
 
+alter table REGION
+   add constraint FK_REGION_COUNTRY_R_COUNTRY foreign key (ID_COUNTRY)
+      references COUNTRY (ID_COUNTRY)
+      on delete restrict on update restrict;
+
 alter table WEARABLE
    add constraint FK_WEARABLE_MODEL_WEA_WEARABLE foreign key (ID_WEARABLE_MODEL)
       references WEARABLE_MODEL (ID_WEARABLE_MODEL)
@@ -464,5 +524,6 @@ alter table WEARABLE
    add constraint FK_WEARABLE_WEARABLE__APP_USER foreign key (ID_USER)
       references APP_USER (ID_USER)
       on delete restrict on update restrict;
+
 
 
