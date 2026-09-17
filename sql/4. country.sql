@@ -1,17 +1,13 @@
 
 
-UPDATE Country
-set name= 'Andorra'
-WHERE id_country = 1; 
-
-UPDATE Country
+UPDATE country
 set name= 'United Arab Emirates'
 WHERE id_country = 2; 
 
 
 
 
-INSERT INTO Country (id_country, name) VALUES
+INSERT INTO country (id_country, name) VALUES
 (3, 'Afghanistan'),
 (4, 'Antigua and Barbuda'),
 (5, 'Anguilla'),
