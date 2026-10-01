@@ -1,0 +1,638 @@
+C:\Users\ktati\OneDrive\Escritorio\TrabajoGrado\pruebas\iot\iot-benchmark\timescaledb\target\iot-benchmark-timescaledb\iot-benchmark-timescaledb>benchmark.bat
+````````````````````````
+Starting iot-benchmark
+````````````````````````
+2026/09/17 17:39:52 INFO  [iot.benchmark.App] Initial Heap Size: 402653184 bytes, Max Heap Size: 6354370560 bytes.
+2026/09/17 17:39:52 INFO  [benchmark.conf.ConfigDescriptor] Init SensorTypes: BOOLEAN:INT32:INT64:FLOAT:DOUBLE:TEXT:STRING:BLOB:TIMESTAMP:DATE:OBJECT= 1:1:1:1:1:1:0:0:0:0:0
+2026/09/17 17:39:52 INFO  [benchmark.workload.GenerateDataWorkLoad] Start Generating WorkLoad
+2026/09/17 17:39:52 INFO  [benchmark.workload.GenerateDataWorkLoad] According to OPERATION_PROPORTION, there is no need to write
+2026/09/17 17:39:52 INFO  [benchmark.workload.GenerateDataWorkLoad] Finish Generating WorkLoad
+2026/09/17 17:40:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 2,00% workload is done.
+2026/09/17 17:40:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 2,00% workload is done.
+2026/09/17 17:40:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 2,00% workload is done.
+2026/09/17 17:40:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 2,00% workload is done.
+2026/09/17 17:40:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 2,00% workload is done.
+2026/09/17 17:40:08 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 53,00% workload is done.
+2026/09/17 17:40:08 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 50,00% workload is done.
+2026/09/17 17:40:08 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 50,00% workload is done.
+2026/09/17 17:40:08 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 51,00% workload is done.
+2026/09/17 17:40:08 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 50,00% workload is done.
+2026/09/17 17:40:13 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 100,00% workload is done.
+2026/09/17 17:40:13 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 99,00% workload is done.
+2026/09/17 17:40:13 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 98,00% workload is done.
+2026/09/17 17:40:13 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 100,00% workload is done.
+2026/09/17 17:40:13 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 98,00% workload is done.
+2026/09/17 17:40:16 INFO  [benchmark.mode.BaseMode] All dataClients finished. The final test result is:
+----------------------Main Configurations----------------------
+########### Test Mode ###########
+BENCHMARK_WORK_MODE=testWithDefaultPath
+IoTDB_DIALECT_MODE=TREE
+########### Database Connection Information ###########
+DOUBLE_WRITE=false
+DBConfig=
+  DB_SWITCH=TimescaleDB
+  HOST=[ep-royal-poetry-b4l993pn.c-6.us-east-2.aws.neon.tech]
+########### Data Mode ###########
+GROUP_NUMBER=1
+IoTDB_TABLE_NUMBER=1
+DEVICE_NUMBER=5
+REAL_INSERT_RATE=1.0
+SENSOR_NUMBER=2
+IS_SENSOR_TS_ALIGNMENT=true
+IS_OUT_OF_ORDER=false
+OUT_OF_ORDER_RATIO=0.5
+########### Data Amount ###########
+OPERATION_PROPORTION=0:0:1:0:0:0:0:0:0:0:0:0:0
+SCHEMA_CLIENT_NUMBER=5
+DATA_CLIENT_NUMBER=5
+LOOP=100
+BATCH_SIZE_PER_WRITE=100
+DEVICE_NUM_PER_WRITE=1
+START_TIME=2026-01-01T00:00:00
+POINT_STEP=10
+OP_MIN_INTERVAL=0
+OP_MIN_INTERVAL_RANDOM=false
+INTERVAL_BETWEEN_WRITE_BATCH=0
+INSERT_DATATYPE_PROPORTION=1:1:1:1:1:1:0:0:0:0:0
+ENCODINGS=RLE/TS_2DIFF/TS_2DIFF/GORILLA/GORILLA/DICTIONARY/PLAIN/PLAIN/TS_2DIFF/TS_2DIFF
+COMPRESSOR=LZ4
+########### Query Param ###########
+QUERY_DEVICE_NUM=1
+QUERY_SENSOR_NUM=1
+QUERY_INTERVAL=1800000
+STEP_SIZE=1800000
+IS_RECENT_QUERY=false
+########### Other Param ###########
+IS_DELETE_DATA=false
+CREATE_SCHEMA=false
+BENCHMARK_CLUSTER=false
+VECTOR=true
+
+---------------------------------------------------------------
+
+Create schema cost 0,00 second
+Test elapsed time (not include schema creation): 21,36 second
+----------------------------------------------------------Result Matrix----------------------------------------------------------
+Operation                okOperation              okPoint                  failOperation            failPoint                throughput(point/s)
+INGESTION                0                        0                        0                        0                        0,00
+PRECISE_POINT            0                        0                        0                        0                        0,00
+TIME_RANGE               500                      50000                    0                        0                        2340,71
+VALUE_RANGE              0                        0                        0                        0                        0,00
+AGG_RANGE                0                        0                        0                        0                        0,00
+AGG_VALUE                0                        0                        0                        0                        0,00
+AGG_RANGE_VALUE          0                        0                        0                        0                        0,00
+GROUP_BY                 0                        0                        0                        0                        0,00
+LATEST_POINT             0                        0                        0                        0                        0,00
+RANGE_QUERY_DESC         0                        0                        0                        0                        0,00
+VALUE_RANGE_QUERY_DESC   0                        0                        0                        0                        0,00
+GROUP_BY_DESC            0                        0                        0                        0                        0,00
+SET_OPERATION            0                        0                        0                        0                        0,00
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------Latency (ms) Matrix--------------------------------------------------------------------------
+Operation                AVG         MIN         P10         P25         MEDIAN      P75         P90         P95         P99         P999        MAX         SLOWEST_THREAD
+INGESTION                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+PRECISE_POINT            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+TIME_RANGE               107,84      96,08       97,66       100,30      102,90      103,72      104,57      106,05      115,69      681,09      680,80      10977,87
+VALUE_RANGE              0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_VALUE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE_VALUE          0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY                 0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+LATEST_POINT             0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+RANGE_QUERY_DESC         0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+VALUE_RANGE_QUERY_DESC   0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY_DESC            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+SET_OPERATION            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------SQL Statements Example---------------------------------------------------------------------
+Operation                          SQL
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Presione una tecla para continuar . . .   Microsoft Windows [Versión 10.0.26200.9445]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\ktati>cd C:\Users\ktati\OneDrive\Escritorio\TrabajoGrado\pruebas\iot\iot-benchmark\timescaledb\target\iot-benchmark-timescaledb\iot-benchmark-timescaledb
+
+C:\Users\ktati\OneDrive\Escritorio\TrabajoGrado\pruebas\iot\iot-benchmark\timescaledb\target\iot-benchmark-timescaledb\iot-benchmark-timescaledb>benchmark.bat
+````````````````````````
+Starting iot-benchmark
+````````````````````````
+2026/09/17 21:31:28 INFO  [iot.benchmark.App] Initial Heap Size: 402653184 bytes, Max Heap Size: 6354370560 bytes.
+2026/09/17 21:31:28 INFO  [benchmark.conf.ConfigDescriptor] Init SensorTypes: BOOLEAN:INT32:INT64:FLOAT:DOUBLE:TEXT:STRING:BLOB:TIMESTAMP:DATE:OBJECT= 1:1:1:1:1:1:0:0:0:0:0
+2026/09/17 21:31:28 INFO  [benchmark.workload.GenerateDataWorkLoad] Start Generating WorkLoad
+2026/09/17 21:31:28 INFO  [benchmark.workload.GenerateDataWorkLoad] According to OPERATION_PROPORTION, there is no need to write
+2026/09/17 21:31:28 INFO  [benchmark.workload.GenerateDataWorkLoad] Finish Generating WorkLoad
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 7,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 7,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 8,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 8,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 5,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 7,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 8,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 7,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 7,00% workload is done.
+2026/09/17 21:31:31 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 4,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 57,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 55,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 57,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 61,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 56,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 56,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 62,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 55,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 53,00% workload is done.
+2026/09/17 21:31:36 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 54,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 100,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 98,00% workload is done.
+2026/09/17 21:31:41 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 100,00% workload is done.
+2026/09/17 21:31:44 INFO  [benchmark.mode.BaseMode] All dataClients finished. The final test result is:
+----------------------Main Configurations----------------------
+########### Test Mode ###########
+BENCHMARK_WORK_MODE=testWithDefaultPath
+IoTDB_DIALECT_MODE=TREE
+########### Database Connection Information ###########
+DOUBLE_WRITE=false
+DBConfig=
+  DB_SWITCH=TimescaleDB
+  HOST=[ep-royal-poetry-b4l993pn.c-6.us-east-2.aws.neon.tech]
+########### Data Mode ###########
+GROUP_NUMBER=1
+IoTDB_TABLE_NUMBER=1
+DEVICE_NUMBER=20
+REAL_INSERT_RATE=1.0
+SENSOR_NUMBER=2
+IS_SENSOR_TS_ALIGNMENT=true
+IS_OUT_OF_ORDER=false
+OUT_OF_ORDER_RATIO=0.5
+########### Data Amount ###########
+OPERATION_PROPORTION=0:0:1:0:0:0:0:0:0:0:0:0:0
+SCHEMA_CLIENT_NUMBER=10
+DATA_CLIENT_NUMBER=10
+LOOP=100
+BATCH_SIZE_PER_WRITE=100
+DEVICE_NUM_PER_WRITE=1
+START_TIME=2026-01-01T00:00:00
+POINT_STEP=10
+OP_MIN_INTERVAL=0
+OP_MIN_INTERVAL_RANDOM=false
+INTERVAL_BETWEEN_WRITE_BATCH=0
+INSERT_DATATYPE_PROPORTION=1:1:1:1:1:1:0:0:0:0:0
+ENCODINGS=RLE/TS_2DIFF/TS_2DIFF/GORILLA/GORILLA/DICTIONARY/PLAIN/PLAIN/TS_2DIFF/TS_2DIFF
+COMPRESSOR=LZ4
+########### Query Param ###########
+QUERY_DEVICE_NUM=1
+QUERY_SENSOR_NUM=1
+QUERY_INTERVAL=1800000
+STEP_SIZE=1800000
+IS_RECENT_QUERY=false
+########### Other Param ###########
+IS_DELETE_DATA=false
+CREATE_SCHEMA=false
+BENCHMARK_CLUSTER=false
+VECTOR=true
+
+---------------------------------------------------------------
+
+Create schema cost 0,00 second
+Test elapsed time (not include schema creation): 14,40 second
+----------------------------------------------------------Result Matrix----------------------------------------------------------
+Operation                okOperation              okPoint                  failOperation            failPoint                throughput(point/s)
+INGESTION                0                        0                        0                        0                        0,00
+PRECISE_POINT            0                        0                        0                        0                        0,00
+TIME_RANGE               1000                     20000                    0                        0                        1389,07
+VALUE_RANGE              0                        0                        0                        0                        0,00
+AGG_RANGE                0                        0                        0                        0                        0,00
+AGG_VALUE                0                        0                        0                        0                        0,00
+AGG_RANGE_VALUE          0                        0                        0                        0                        0,00
+GROUP_BY                 0                        0                        0                        0                        0,00
+LATEST_POINT             0                        0                        0                        0                        0,00
+RANGE_QUERY_DESC         0                        0                        0                        0                        0,00
+VALUE_RANGE_QUERY_DESC   0                        0                        0                        0                        0,00
+GROUP_BY_DESC            0                        0                        0                        0                        0,00
+SET_OPERATION            0                        0                        0                        0                        0,00
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------Latency (ms) Matrix--------------------------------------------------------------------------
+Operation                AVG         MIN         P10         P25         MEDIAN      P75         P90         P95         P99         P999        MAX         SLOWEST_THREAD
+INGESTION                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+PRECISE_POINT            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+TIME_RANGE               103,42      91,46       94,03       97,57       100,67      104,06      107,50      108,35      120,56      446,85      580,87      11319,46
+VALUE_RANGE              0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_VALUE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE_VALUE          0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY                 0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+LATEST_POINT             0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+RANGE_QUERY_DESC         0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+VALUE_RANGE_QUERY_DESC   0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY_DESC            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+SET_OPERATION            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------SQL Statements Example---------------------------------------------------------------------
+Operation                          SQL
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Presione una tecla para continuar . . .
+
+C:\Users\ktati\OneDrive\Escritorio\TrabajoGrado\pruebas\iot\iot-benchmark\timescaledb\target\iot-benchmark-timescaledb\iot-benchmark-timescaledb>benchmark.bat
+````````````````````````
+Starting iot-benchmark
+````````````````````````
+2026/09/17 21:35:16 INFO  [iot.benchmark.App] Initial Heap Size: 402653184 bytes, Max Heap Size: 6354370560 bytes.
+2026/09/17 21:35:16 INFO  [benchmark.conf.ConfigDescriptor] Init SensorTypes: BOOLEAN:INT32:INT64:FLOAT:DOUBLE:TEXT:STRING:BLOB:TIMESTAMP:DATE:OBJECT= 1:1:1:1:1:1:0:0:0:0:0
+2026/09/17 21:35:16 INFO  [benchmark.workload.GenerateDataWorkLoad] Start Generating WorkLoad
+2026/09/17 21:35:16 INFO  [benchmark.workload.GenerateDataWorkLoad] According to OPERATION_PROPORTION, there is no need to write
+2026/09/17 21:35:16 INFO  [benchmark.workload.GenerateDataWorkLoad] Finish Generating WorkLoad
+2026/09/17 21:35:18 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 8,00% workload is done.
+2026/09/17 21:35:18 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 7,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 9,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 4,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-11 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-12 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-13 9,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-14 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-15 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-16 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-17 9,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-18 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-19 4,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-20 9,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-21 9,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-22 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-23 8,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-24 9,00% workload is done.
+2026/09/17 21:35:19 INFO  [benchmark.mode.BaseMode] DataClientService-thread-25 5,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 60,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 59,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 59,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 56,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 58,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 55,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 60,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 60,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 56,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 53,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-11 57,00% workload is done.
+2026/09/17 21:35:23 INFO  [benchmark.mode.BaseMode] DataClientService-thread-12 55,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-13 60,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-14 58,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-15 57,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-16 56,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-17 62,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-18 58,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-19 52,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-20 60,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-21 58,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-22 57,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-23 59,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-24 57,00% workload is done.
+2026/09/17 21:35:24 INFO  [benchmark.mode.BaseMode] DataClientService-thread-25 55,00% workload is done.
+2026/09/17 21:35:28 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 100,00% workload is done.
+2026/09/17 21:35:28 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-11 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-12 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-13 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-14 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-15 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-16 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-17 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-18 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-19 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-20 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-21 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-22 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-23 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-24 100,00% workload is done.
+2026/09/17 21:35:29 INFO  [benchmark.mode.BaseMode] DataClientService-thread-25 100,00% workload is done.
+2026/09/17 21:35:32 INFO  [benchmark.mode.BaseMode] All dataClients finished. The final test result is:
+----------------------Main Configurations----------------------
+########### Test Mode ###########
+BENCHMARK_WORK_MODE=testWithDefaultPath
+IoTDB_DIALECT_MODE=TREE
+########### Database Connection Information ###########
+DOUBLE_WRITE=false
+DBConfig=
+  DB_SWITCH=TimescaleDB
+  HOST=[ep-royal-poetry-b4l993pn.c-6.us-east-2.aws.neon.tech]
+########### Data Mode ###########
+GROUP_NUMBER=1
+IoTDB_TABLE_NUMBER=1
+DEVICE_NUMBER=50
+REAL_INSERT_RATE=1.0
+SENSOR_NUMBER=2
+IS_SENSOR_TS_ALIGNMENT=true
+IS_OUT_OF_ORDER=false
+OUT_OF_ORDER_RATIO=0.5
+########### Data Amount ###########
+OPERATION_PROPORTION=0:0:1:0:0:0:0:0:0:0:0:0:0
+SCHEMA_CLIENT_NUMBER=25
+DATA_CLIENT_NUMBER=25
+LOOP=100
+BATCH_SIZE_PER_WRITE=100
+DEVICE_NUM_PER_WRITE=1
+START_TIME=2026-01-01T00:00:00
+POINT_STEP=10
+OP_MIN_INTERVAL=0
+OP_MIN_INTERVAL_RANDOM=false
+INTERVAL_BETWEEN_WRITE_BATCH=0
+INSERT_DATATYPE_PROPORTION=1:1:1:1:1:1:0:0:0:0:0
+ENCODINGS=RLE/TS_2DIFF/TS_2DIFF/GORILLA/GORILLA/DICTIONARY/PLAIN/PLAIN/TS_2DIFF/TS_2DIFF
+COMPRESSOR=LZ4
+########### Query Param ###########
+QUERY_DEVICE_NUM=1
+QUERY_SENSOR_NUM=1
+QUERY_INTERVAL=1800000
+STEP_SIZE=1800000
+IS_RECENT_QUERY=false
+########### Other Param ###########
+IS_DELETE_DATA=false
+CREATE_SCHEMA=false
+BENCHMARK_CLUSTER=false
+VECTOR=true
+
+---------------------------------------------------------------
+
+Create schema cost 0,00 second
+Test elapsed time (not include schema creation): 13,24 second
+----------------------------------------------------------Result Matrix----------------------------------------------------------
+Operation                okOperation              okPoint                  failOperation            failPoint                throughput(point/s)
+INGESTION                0                        0                        0                        0                        0,00
+PRECISE_POINT            0                        0                        0                        0                        0,00
+TIME_RANGE               2500                     30000                    0                        0                        2266,31
+VALUE_RANGE              0                        0                        0                        0                        0,00
+AGG_RANGE                0                        0                        0                        0                        0,00
+AGG_VALUE                0                        0                        0                        0                        0,00
+AGG_RANGE_VALUE          0                        0                        0                        0                        0,00
+GROUP_BY                 0                        0                        0                        0                        0,00
+LATEST_POINT             0                        0                        0                        0                        0,00
+RANGE_QUERY_DESC         0                        0                        0                        0                        0,00
+VALUE_RANGE_QUERY_DESC   0                        0                        0                        0                        0,00
+GROUP_BY_DESC            0                        0                        0                        0                        0,00
+SET_OPERATION            0                        0                        0                        0                        0,00
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------Latency (ms) Matrix--------------------------------------------------------------------------
+Operation                AVG         MIN         P10         P25         MEDIAN      P75         P90         P95         P99         P999        MAX         SLOWEST_THREAD
+INGESTION                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+PRECISE_POINT            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+TIME_RANGE               101,45      92,37       95,65       97,07       99,88       102,06      105,01      105,91      113,01      415,08      634,27      10800,01
+VALUE_RANGE              0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_VALUE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE_VALUE          0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY                 0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+LATEST_POINT             0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+RANGE_QUERY_DESC         0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+VALUE_RANGE_QUERY_DESC   0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY_DESC            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+SET_OPERATION            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------SQL Statements Example---------------------------------------------------------------------
+Operation                          SQL
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Presione una tecla para continuar . . .
+
+C:\Users\ktati\OneDrive\Escritorio\TrabajoGrado\pruebas\iot\iot-benchmark\timescaledb\target\iot-benchmark-timescaledb\iot-benchmark-timescaledb>benchmark.bat
+````````````````````````
+Starting iot-benchmark
+````````````````````````
+2026/09/17 21:35:50 INFO  [iot.benchmark.App] Initial Heap Size: 402653184 bytes, Max Heap Size: 6354370560 bytes.
+2026/09/17 21:35:50 INFO  [benchmark.conf.ConfigDescriptor] Init SensorTypes: BOOLEAN:INT32:INT64:FLOAT:DOUBLE:TEXT:STRING:BLOB:TIMESTAMP:DATE:OBJECT= 1:1:1:1:1:1:0:0:0:0:0
+2026/09/17 21:35:51 INFO  [benchmark.workload.GenerateDataWorkLoad] Start Generating WorkLoad
+2026/09/17 21:35:51 INFO  [benchmark.workload.GenerateDataWorkLoad] According to OPERATION_PROPORTION, there is no need to write
+2026/09/17 21:35:51 INFO  [benchmark.workload.GenerateDataWorkLoad] Finish Generating WorkLoad
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 6,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 6,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 9,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-11 3,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-12 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-13 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-14 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-15 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-16 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-17 6,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-18 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-19 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-20 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-21 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-22 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-23 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-24 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-25 9,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-26 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-27 4,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-28 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-29 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-30 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-31 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-32 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-33 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-34 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-35 9,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-36 7,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-37 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-38 8,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-39 3,00% workload is done.
+2026/09/17 21:35:53 INFO  [benchmark.mode.BaseMode] DataClientService-thread-40 8,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 58,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 54,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 58,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 59,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 55,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 57,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 60,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 57,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 56,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 61,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-11 51,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-12 55,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-13 57,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-14 57,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-15 54,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-16 57,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-17 53,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-18 56,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-19 59,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-20 59,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-21 55,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-22 59,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-23 53,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-24 56,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-25 60,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-26 58,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-27 54,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-28 55,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-29 55,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-30 57,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-31 56,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-32 56,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-33 58,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-34 56,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-35 59,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-36 54,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-37 59,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-38 57,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-39 50,00% workload is done.
+2026/09/17 21:35:58 INFO  [benchmark.mode.BaseMode] DataClientService-thread-40 58,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-1 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-2 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-3 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-4 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-5 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-6 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-7 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-8 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-9 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-10 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-11 98,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-12 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-13 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-14 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-15 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-16 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-17 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-18 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-19 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-20 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-21 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-22 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-23 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-24 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-25 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-26 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-27 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-28 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-29 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-30 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-31 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-32 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-33 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-34 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-35 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-36 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-37 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-38 100,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-39 99,00% workload is done.
+2026/09/17 21:36:03 INFO  [benchmark.mode.BaseMode] DataClientService-thread-40 100,00% workload is done.
+2026/09/17 21:36:06 INFO  [benchmark.mode.BaseMode] All dataClients finished. The final test result is:
+----------------------Main Configurations----------------------
+########### Test Mode ###########
+BENCHMARK_WORK_MODE=testWithDefaultPath
+IoTDB_DIALECT_MODE=TREE
+########### Database Connection Information ###########
+DOUBLE_WRITE=false
+DBConfig=
+  DB_SWITCH=TimescaleDB
+  HOST=[ep-royal-poetry-b4l993pn.c-6.us-east-2.aws.neon.tech]
+########### Data Mode ###########
+GROUP_NUMBER=1
+IoTDB_TABLE_NUMBER=1
+DEVICE_NUMBER=70
+REAL_INSERT_RATE=1.0
+SENSOR_NUMBER=2
+IS_SENSOR_TS_ALIGNMENT=true
+IS_OUT_OF_ORDER=false
+OUT_OF_ORDER_RATIO=0.5
+########### Data Amount ###########
+OPERATION_PROPORTION=0:0:1:0:0:0:0:0:0:0:0:0:0
+SCHEMA_CLIENT_NUMBER=40
+DATA_CLIENT_NUMBER=40
+LOOP=100
+BATCH_SIZE_PER_WRITE=100
+DEVICE_NUM_PER_WRITE=1
+START_TIME=2026-01-01T00:00:00
+POINT_STEP=10
+OP_MIN_INTERVAL=0
+OP_MIN_INTERVAL_RANDOM=false
+INTERVAL_BETWEEN_WRITE_BATCH=0
+INSERT_DATATYPE_PROPORTION=1:1:1:1:1:1:0:0:0:0:0
+ENCODINGS=RLE/TS_2DIFF/TS_2DIFF/GORILLA/GORILLA/DICTIONARY/PLAIN/PLAIN/TS_2DIFF/TS_2DIFF
+COMPRESSOR=LZ4
+########### Query Param ###########
+QUERY_DEVICE_NUM=1
+QUERY_SENSOR_NUM=1
+QUERY_INTERVAL=1800000
+STEP_SIZE=1800000
+IS_RECENT_QUERY=false
+########### Other Param ###########
+IS_DELETE_DATA=false
+CREATE_SCHEMA=false
+BENCHMARK_CLUSTER=false
+VECTOR=true
+
+---------------------------------------------------------------
+
+Create schema cost 0,00 second
+Test elapsed time (not include schema creation): 13,55 second
+----------------------------------------------------------Result Matrix----------------------------------------------------------
+Operation                okOperation              okPoint                  failOperation            failPoint                throughput(point/s)
+INGESTION                0                        0                        0                        0                        0,00
+PRECISE_POINT            0                        0                        0                        0                        0,00
+TIME_RANGE               4000                     30000                    0                        0                        2214,15
+VALUE_RANGE              0                        0                        0                        0                        0,00
+AGG_RANGE                0                        0                        0                        0                        0,00
+AGG_VALUE                0                        0                        0                        0                        0,00
+AGG_RANGE_VALUE          0                        0                        0                        0                        0,00
+GROUP_BY                 0                        0                        0                        0                        0,00
+LATEST_POINT             0                        0                        0                        0                        0,00
+RANGE_QUERY_DESC         0                        0                        0                        0                        0,00
+VALUE_RANGE_QUERY_DESC   0                        0                        0                        0                        0,00
+GROUP_BY_DESC            0                        0                        0                        0                        0,00
+SET_OPERATION            0                        0                        0                        0                        0,00
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------Latency (ms) Matrix--------------------------------------------------------------------------
+Operation                AVG         MIN         P10         P25         MEDIAN      P75         P90         P95         P99         P999        MAX         SLOWEST_THREAD
+INGESTION                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+PRECISE_POINT            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+TIME_RANGE               103,13      92,86       97,11       98,75       101,47      103,64      105,61      107,03      119,62      335,78      735,67      11067,34
+VALUE_RANGE              0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_VALUE                0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+AGG_RANGE_VALUE          0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY                 0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+LATEST_POINT             0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+RANGE_QUERY_DESC         0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+VALUE_RANGE_QUERY_DESC   0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+GROUP_BY_DESC            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+SET_OPERATION            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------SQL Statements Example---------------------------------------------------------------------
+Operation                          SQL
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Presione una tecla para continuar . . .

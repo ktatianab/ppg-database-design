@@ -1,0 +1,92 @@
+SCHEMA_CLIENT_NUMBER=5
+DATA_CLIENT_NUMBER=40
+DEVICE_NUMBER=70 con resultados de 2026/09/04 12:57:41 INFO  [benchmark.mode.BaseMode] All dataClients finished. The final test result is:
+
+
+----------------------Main Configurations----------------------
+########### Test Mode ###########
+BENCHMARK_WORK_MODE=testWithDefaultPath
+IoTDB_DIALECT_MODE=TREE
+########### Database Connection Information ###########
+DOUBLE_WRITE=false
+DBConfig=
+  DB_SWITCH=TimescaleDB
+  HOST=[ep-crimson-darkness-aj5tnym0-pooler.c-3.us-east-2.aws.neon.tech]
+########### Data Mode ###########
+GROUP_NUMBER=1
+IoTDB_TABLE_NUMBER=1
+DEVICE_NUMBER=70
+REAL_INSERT_RATE=1.0
+SENSOR_NUMBER=3
+IS_SENSOR_TS_ALIGNMENT=true
+IS_OUT_OF_ORDER=false
+OUT_OF_ORDER_RATIO=0.5
+########### Data Amount ###########
+OPERATION_PROPORTION=1:1:1:1:1:1:1:1:1:1:1:0:0
+SCHEMA_CLIENT_NUMBER=5
+DATA_CLIENT_NUMBER=40
+LOOP=200
+BATCH_SIZE_PER_WRITE=500
+DEVICE_NUM_PER_WRITE=1
+START_TIME=2022-01-01T00:00:00+08:00
+POINT_STEP=10
+OP_MIN_INTERVAL=0
+OP_MIN_INTERVAL_RANDOM=false
+INTERVAL_BETWEEN_WRITE_BATCH=0
+INSERT_DATATYPE_PROPORTION=1:1:1:1:1:1:0:0:0:0:0
+ENCODINGS=RLE/TS_2DIFF/TS_2DIFF/GORILLA/GORILLA/DICTIONARY/PLAIN/PLAIN/TS_2DIFF/TS_2DIFF
+COMPRESSOR=LZ4
+########### Query Param ###########
+QUERY_DEVICE_NUM=1
+QUERY_SENSOR_NUM=1
+QUERY_INTERVAL=250000
+STEP_SIZE=1
+IS_RECENT_QUERY=false
+########### Other Param ###########
+IS_DELETE_DATA=false
+CREATE_SCHEMA=true
+BENCHMARK_CLUSTER=false
+VECTOR=true
+
+---------------------------------------------------------------
+
+Create schema cost 0,26 second
+Test elapsed time (not include schema creation): 133,77 second
+----------------------------------------------------------Result Matrix----------------------------------------------------------
+Operation                okOperation              okPoint                  failOperation            failPoint                throughput(point/s)
+INGESTION                1333                     1999500                  0                        0                        14946,76
+PRECISE_POINT            739                      0                        0                        0                        0,00
+TIME_RANGE               708                      2644485                  0                        0                        19768,19
+VALUE_RANGE              739                      3315565                  0                        0                        24784,68
+AGG_RANGE                675                      654                      0                        0                        4,89
+AGG_VALUE                713                      676                      0                        0                        5,05
+AGG_RANGE_VALUE          697                      659                      0                        0                        4,93
+GROUP_BY                 711                      1861                     0                        0                        13,91
+LATEST_POINT             816                      757                      0                        0                        5,66
+RANGE_QUERY_DESC         750                      2929555                  0                        0                        21899,16
+VALUE_RANGE_QUERY_DESC   696                      3027350                  0                        0                        22630,20
+GROUP_BY_DESC            0                        0                        0                        0                        0,00
+SET_OPERATION            0                        0                        0                        0                        0,00
+---------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------Latency (ms) Matrix--------------------------------------------------------------------------
+Operation                AVG         MIN         P10         P25         MEDIAN      P75         P90         P95         P99         P999        MAX         SLOWEST_THREAD
+INGESTION                1125,89     328,80      694,69      894,09      1168,13     1295,77     1445,61     1640,78     2095,55     2561,98     2608,04     55697,22
+PRECISE_POINT            116,28      92,93       100,85      105,13      111,46      122,41      138,96      150,61      178,53      243,44      219,04      3190,97
+TIME_RANGE               399,33      97,72       131,10      205,24      398,18      544,94      684,35      717,22      765,15      855,53      839,87      12468,49
+VALUE_RANGE              500,47      97,88       137,37      229,27      480,48      738,26      897,55      947,86      987,23      1058,05     1043,96     15180,24
+AGG_RANGE                394,39      97,50       132,90      207,65      392,65      551,93      672,41      707,02      756,62      1266,49     1085,23     11256,13
+AGG_VALUE                445,37      97,04       151,92      261,29      439,06      622,33      746,23      782,97      824,30      986,70      943,53      12265,20
+AGG_RANGE_VALUE          482,26      95,00       128,40      217,90      476,15      690,77      854,76      896,91      945,10      1040,95     1016,45     15548,23
+GROUP_BY                 416,98      96,89       130,94      199,35      421,36      609,89      697,98      728,90      776,95      858,72      856,03      11517,58
+LATEST_POINT             369,78      92,92       105,02      122,53      423,85      510,20      566,89      630,11      740,87      800,94      799,97      11666,00
+RANGE_QUERY_DESC         545,27      97,00       136,03      229,31      552,43      794,68      949,75      1020,71     1101,00     1340,09     1288,12     18459,65
+VALUE_RANGE_QUERY_DESC   626,79      95,02       126,36      212,16      624,38      950,92      1192,25     1241,68     1317,27     1413,65     1389,27     17044,27
+GROUP_BY_DESC            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+SET_OPERATION            0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00        0,00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------SQL Statements Example---------------------------------------------------------------------
+Operation                          SQL
+-------------------------------------------------------------------------------------------------------------------
