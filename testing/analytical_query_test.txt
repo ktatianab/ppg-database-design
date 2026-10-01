@@ -1,19 +1,4 @@
 
-
-C:\Users\ktati> psql "%PGURL%"
-psql (16.13, servidor 18.6 (6569466))
-ADVERTENCIA: psql versión mayor 16, servidor versión mayor 18.
-          Algunas características de psql podrían no funcionar.
-ADVERTENCIA: El código de página de la consola (850) difiere del código
-            de página de Windows (1252).
-            Los caracteres de 8 bits pueden funcionar incorrectamente.
-            Vea la página de referencia de psql «Notes for Windows users»
-            para obtener más detalles.
-Conexión SSL (protocolo: TLSv1.3, cifrado: TLS_AES_256_GCM_SHA384, compresión: desactivado)
-Digite «help» para obtener ayuda.
-
-neondb=> \timing on
-El despliegue de duración está activado.
 neondb=> SELECT ms.id_session, ms.date_time, COUNT(a.id_alert) AS total_alertas
 neondb-> FROM monitoring_session ms
 neondb-> LEFT JOIN alert a ON a.id_session = ms.id_session
