@@ -1,4 +1,5 @@
 
+
 neondb=> SELECT ms.id_session, ms.date_time, COUNT(a.id_alert) AS total_alertas
 neondb-> FROM monitoring_session ms
 neondb-> LEFT JOIN alert a ON a.id_session = ms.id_session
